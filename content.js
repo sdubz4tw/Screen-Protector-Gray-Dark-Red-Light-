@@ -241,14 +241,31 @@ function injectStyle(themeType) {
         background: transparent !important;
       }
 
-      /* Force background tint over Yahoo's layout containers */
+      /* Override Yahoo's Internal CSS Custom Variable Tree */
+      html[data-eyecare-active="true"],
       html[data-eyecare-active="true"] body,
       html[data-eyecare-active="true"] #atomic,
-      html[data-eyecare-active="true"] #mrt-node-main,
-      html[data-eyecare-active="true"] header,
-      html[data-eyecare-active="true"] [data-test-locator="stream-item"] {
+      html[data-eyecare-active="true"] [data-wf-theme] {
+        --bg-color: var(--eyecare-bg-color, #ffffff) !important;
+        --theme-bg-color: var(--eyecare-bg-color, #ffffff) !important;
+        --secondary-bg-color: #f5f5f5 !important;
+        --tertiary-bg-color: #eeeeee !important;
+        --text-color: var(--eyecare-text-color, #111111) !important;
+        --primary-text-color: #111111 !important;
+        --secondary-text-color: #444444 !important;
         background-color: var(--eyecare-bg-color, #ffffff) !important;
-        color: var(--eyecare-text-color, #111111) !important;
+      }
+
+      /* Clear hardcoded module backgrounds, headers, and infinite stream cards */
+      html[data-eyecare-active="true"] header,
+      html[data-eyecare-active="true"] nav,
+      html[data-eyecare-active="true"] [role="main"],
+      html[data-eyecare-active="true"] [data-test-locator="stream-item"],
+      html[data-eyecare-active="true"] .wafer-caas-dialog,
+      html[data-eyecare-active="true"] ul[role="listbox"] {
+        background-color: var(--eyecare-bg-color, #ffffff) !important;
+        background-image: none !important; /* Strip dark gradient overlays */
+        color: #111111 !important;
       }
 
       /* Clear hardcoded white/grey inline backgrounds */
@@ -256,10 +273,21 @@ function injectStyle(themeType) {
         background-color: transparent !important;
       }
 
-      /* Protect Yahoo article images & video thumbnails */
+      /* Force all text inside cards to dark high-contrast print */
+      html[data-eyecare-active="true"] p,
+      html[data-eyecare-active="true"] h1,
+      html[data-eyecare-active="true"] h2,
+      html[data-eyecare-active="true"] h3,
+      html[data-eyecare-active="true"] a,
+      html[data-eyecare-active="true"] span {
+        color: #111111 !important;
+      }
+
+      /* Keep Image & Video Media Fully Intact */
       html[data-eyecare-active="true"] img,
       html[data-eyecare-active="true"] video,
       html[data-eyecare-active="true"] figure,
+      html[data-eyecare-active="true"] svg:not([class*="icon"]),
       html[data-eyecare-active="true"] [data-test-locator="image"] {
         filter: none !important;
         opacity: 1 !important;
