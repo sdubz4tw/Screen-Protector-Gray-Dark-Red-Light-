@@ -156,23 +156,59 @@ function injectStyle(themeType) {
     `;
   } else if (themeType === "light") {
     styleEl.textContent = `
-      /* Universal White Background Override for All Containers */
+      /* 1. Universal White Background Override for Outer Margins, Headers, Containers, and Module Cards */
       html[data-eyecare-theme="light"],
       html[data-eyecare-theme="light"] body,
-      html[data-eyecare-theme="light"] *:not(img):not(video):not(canvas):not(svg):not(picture):not(iframe):not([style*="background-image"]) {
+      html[data-eyecare-theme="light"] #atomic,
+      html[data-eyecare-theme="light"] #mrt-node-main,
+      html[data-eyecare-theme="light"] header,
+      html[data-eyecare-theme="light"] nav,
+      html[data-eyecare-theme="light"] main,
+      html[data-eyecare-theme="light"] section,
+      html[data-eyecare-theme="light"] article,
+      html[data-eyecare-theme="light"] aside,
+      html[data-eyecare-theme="light"] div,
+      html[data-eyecare-theme="light"] ul,
+      html[data-eyecare-theme="light"] li,
+      html[data-eyecare-theme="light"] [class*="Card"],
+      html[data-eyecare-theme="light"] [class*="card"],
+      html[data-eyecare-theme="light"] [class*="Module"],
+      html[data-eyecare-theme="light"] [class*="module"],
+      html[data-eyecare-theme="light"] [class*="Box"],
+      html[data-eyecare-theme="light"] [class*="box"],
+      html[data-eyecare-theme="light"] [class*="Container"],
+      html[data-eyecare-theme="light"] [class*="container"],
+      html[data-eyecare-theme="light"] [data-test-locator],
+      html[data-eyecare-theme="light"] [data-component] {
         background-color: #ffffff !important;
-        background-image: none !important;
+        background-image: none !important; /* Strip dark linear gradient overlays */
         border-color: #e2e8f0 !important;
         box-shadow: none !important;
       }
 
-      /* Universal High-Contrast Black Text Override */
-      html[data-eyecare-theme="light"] *:not(img):not(video):not(canvas):not(svg):not(picture):not(iframe) {
-        color: #111111 !important;
+      /* 2. Solid High-Contrast Black Text Override for Top Menu, Headlines, Titles & Body Text */
+      html[data-eyecare-theme="light"] a,
+      html[data-eyecare-theme="light"] button,
+      html[data-eyecare-theme="light"] p,
+      html[data-eyecare-theme="light"] h1,
+      html[data-eyecare-theme="light"] h2,
+      html[data-eyecare-theme="light"] h3,
+      html[data-eyecare-theme="light"] h4,
+      html[data-eyecare-theme="light"] h5,
+      html[data-eyecare-theme="light"] h6,
+      html[data-eyecare-theme="light"] span,
+      html[data-eyecare-theme="light"] li,
+      html[data-eyecare-theme="light"] label,
+      html[data-eyecare-theme="light"] [class*="title"],
+      html[data-eyecare-theme="light"] [class*="menu"],
+      html[data-eyecare-theme="light"] [class*="nav"],
+      html[data-eyecare-theme="light"] [class*="headline"] {
+        color: #000000 !important;
+        opacity: 1 !important;
         text-shadow: none !important;
       }
 
-      /* CSS Custom Variable Tree Override across Frameworks & Web Components */
+      /* 3. CSS Custom Variable Tree Override across Frameworks & Web Components */
       html[data-eyecare-theme="light"],
       html[data-eyecare-theme="light"] * {
         --bg-color: #ffffff !important;
@@ -180,25 +216,32 @@ function injectStyle(themeType) {
         --bg-primary: #ffffff !important;
         --bg-secondary: #f8f9fa !important;
         --surface-color: #ffffff !important;
-        --text-color: #111111 !important;
-        --primary-text-color: #111111 !important;
-        --secondary-text-color: #333333 !important;
+        --text-color: #000000 !important;
+        --primary-text-color: #000000 !important;
+        --secondary-text-color: #222222 !important;
         --yt-spec-base-background: #ffffff !important;
         --yt-spec-brand-background-solid: #ffffff !important;
       }
 
-      /* Preserve Media & Image Visibility */
+      /* 4. Restore & Protect Yahoo Logo, Brand SVGs, Icons, and Media Elements */
+      html[data-eyecare-theme="light"] #ybar-logo,
+      html[data-eyecare-theme="light"] [data-test-locator="logo"],
       html[data-eyecare-theme="light"] img,
       html[data-eyecare-theme="light"] video,
       html[data-eyecare-theme="light"] canvas,
       html[data-eyecare-theme="light"] picture,
-      html[data-eyecare-theme="light"] svg,
-      html[data-eyecare-theme="light"] iframe,
-      html[data-eyecare-theme="light"] [style*="background-image"] {
+      html[data-eyecare-theme="light"] iframe {
         background-color: transparent !important;
         filter: none !important;
         opacity: 1 !important;
+        visibility: visible !important;
         isolation: isolate;
+      }
+
+      html[data-eyecare-theme="light"] svg,
+      html[data-eyecare-theme="light"] svg * {
+        opacity: 1 !important;
+        visibility: visible !important;
       }
     `;
   }
