@@ -156,42 +156,44 @@ function injectStyle(themeType) {
     `;
   } else if (themeType === "light") {
     styleEl.textContent = `
-      /* 1. Universal 100% White Background Override for All Page Elements & Containers */
+      /* 1. Universal White Background Override for All Containers (Excluding Media & Slide Elements) */
       html[data-eyecare-theme="light"],
       html[data-eyecare-theme="light"] body,
-      html[data-eyecare-theme="light"] body *,
       html[data-eyecare-theme="light"] #atomic,
-      html[data-eyecare-theme="light"] #atomic * {
+      html[data-eyecare-theme="light"] #mrt-node-main,
+      html[data-eyecare-theme="light"] header,
+      html[data-eyecare-theme="light"] nav,
+      html[data-eyecare-theme="light"] main,
+      html[data-eyecare-theme="light"] section,
+      html[data-eyecare-theme="light"] article,
+      html[data-eyecare-theme="light"] aside,
+      html[data-eyecare-theme="light"] div:not([class*="slide"]):not([class*="hero"]):not([class*="media"]):not([class*="image"]):not([style*="background-image"]) {
         background-color: #ffffff !important;
-        background-image: none !important; /* Strip dark linear gradients */
         box-shadow: none !important;
       }
 
-      /* 2. Universal Solid Black Text Override for All Text Elements */
+      /* 2. Strip Dark Background Overlays only on Non-Media Containers */
+      html[data-eyecare-theme="light"] div:not([class*="slide"]):not([class*="hero"]):not([class*="media"]):not([class*="image"]):not([class*="thumb"]):not([style*="background-image"]) {
+        background-image: none !important;
+      }
+
+      /* 3. Universal High-Contrast Black Text */
       html[data-eyecare-theme="light"] body *:not(img):not(video):not(canvas):not(svg):not(picture):not(iframe) {
         color: #000000 !important;
         opacity: 1 !important;
         text-shadow: none !important;
       }
 
-      /* 3. Re-apply Card Outlines & Borders for Structural Containers */
-      html[data-eyecare-theme="light"] article,
-      html[data-eyecare-theme="light"] section,
-      html[data-eyecare-theme="light"] li,
+      /* 4. Target ONLY Specific Top-Level Cards for Card Borders (Prevents Layout Shift) */
       html[data-eyecare-theme="light"] [data-test-locator="stream-item"],
-      html[data-eyecare-theme="light"] [class*="Tile"],
-      html[data-eyecare-theme="light"] [class*="tile"],
-      html[data-eyecare-theme="light"] [class*="Item"],
-      html[data-eyecare-theme="light"] [class*="item"],
-      html[data-eyecare-theme="light"] [class*="Card"],
-      html[data-eyecare-theme="light"] [class*="card"],
-      html[data-eyecare-theme="light"] [class*="Module"],
-      html[data-eyecare-theme="light"] [class*="module"] {
+      html[data-eyecare-theme="light"] [data-component="card"],
+      html[data-eyecare-theme="light"] .caas-card,
+      html[data-eyecare-theme="light"] .wafer-caas-dialog {
         border: 1px solid #e2e8f0 !important;
         border-radius: 8px !important;
       }
 
-      /* 4. Search Bar Explicit Styling */
+      /* 5. Yahoo Top Search Bar */
       html[data-eyecare-theme="light"] #ybar-sbq,
       html[data-eyecare-theme="light"] #ybar-sf,
       html[data-eyecare-theme="light"] form[action*="search"],
@@ -202,39 +204,32 @@ function injectStyle(themeType) {
         border-radius: 20px !important;
       }
 
-      /* 5. CSS Custom Variables Reset */
-      html[data-eyecare-theme="light"],
-      html[data-eyecare-theme="light"] * {
-        --bg-color: #ffffff !important;
-        --theme-bg-color: #ffffff !important;
-        --bg-primary: #ffffff !important;
-        --bg-secondary: #ffffff !important;
-        --surface-color: #ffffff !important;
-        --text-color: #000000 !important;
-        --primary-text-color: #000000 !important;
-        --secondary-text-color: #000000 !important;
-      }
-
-      /* 6. Restore & Protect Yahoo Logo, SVGs, Media, and Images */
-      html[data-eyecare-theme="light"] #ybar-logo,
-      html[data-eyecare-theme="light"] #ybar-logo *,
-      html[data-eyecare-theme="light"] [data-test-locator="logo"],
-      html[data-eyecare-theme="light"] [data-test-locator="logo"] *,
-      html[data-eyecare-theme="light"] [class*="logo"],
-      html[data-eyecare-theme="light"] [class*="Logo"] {
+      /* 6. Preserve & Protect All Hero Slides, Images, Pictures, Videos, Media & Logos */
+      html[data-eyecare-theme="light"] img,
+      html[data-eyecare-theme="light"] video,
+      html[data-eyecare-theme="light"] canvas,
+      html[data-eyecare-theme="light"] picture,
+      html[data-eyecare-theme="light"] figure,
+      html[data-eyecare-theme="light"] iframe,
+      html[data-eyecare-theme="light"] [style*="background-image"],
+      html[data-eyecare-theme="light"] [class*="slide"],
+      html[data-eyecare-theme="light"] [class*="hero"],
+      html[data-eyecare-theme="light"] [class*="media"],
+      html[data-eyecare-theme="light"] [class*="image"],
+      html[data-eyecare-theme="light"] [class*="thumb"] {
         background-color: transparent !important;
-        background-image: inherit !important;
         filter: none !important;
         opacity: 1 !important;
         visibility: visible !important;
         isolation: isolate;
       }
 
-      html[data-eyecare-theme="light"] img,
-      html[data-eyecare-theme="light"] video,
-      html[data-eyecare-theme="light"] canvas,
-      html[data-eyecare-theme="light"] picture,
-      html[data-eyecare-theme="light"] iframe {
+      html[data-eyecare-theme="light"] #ybar-logo,
+      html[data-eyecare-theme="light"] #ybar-logo *,
+      html[data-eyecare-theme="light"] [data-test-locator="logo"],
+      html[data-eyecare-theme="light"] [data-test-locator="logo"] *,
+      html[data-eyecare-theme="light"] [class*="logo"],
+      html[data-eyecare-theme="light"] [class*="Logo"] {
         background-color: transparent !important;
         filter: none !important;
         opacity: 1 !important;
