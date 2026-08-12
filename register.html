@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>EYEsorenomore - Welcome & Registration</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background-color: #1E1E1E;
+      color: #FFFFFF;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", Roboto, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      user-select: none;
+    }
+
+    .register-card {
+      background-color: #2A2A2A;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 12px;
+      padding: 32px;
+      width: 100%;
+      max-width: 400px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+      box-sizing: border-box;
+      text-align: center;
+    }
+
+    .brand-title {
+      font-size: 26px;
+      font-weight: 700;
+      color: #FFFFFF;
+      margin: 0 0 6px 0;
+      letter-spacing: -0.02em;
+    }
+
+    .brand-subtitle {
+      font-size: 13px;
+      color: #8E8E93;
+      margin: 0 0 24px 0;
+    }
+
+    .form-group {
+      text-align: left;
+      margin-bottom: 16px;
+    }
+
+    .form-group label {
+      display: block;
+      font-size: 12px;
+      font-weight: 600;
+      color: #8E8E93;
+      margin-bottom: 6px;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+
+    .form-group input {
+      width: 100%;
+      padding: 12px;
+      background-color: #1E1E1E;
+      border: 1px solid #3A3A3C;
+      border-radius: 8px;
+      color: #FFFFFF;
+      font-size: 14px;
+      box-sizing: border-box;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+
+    .form-group input:focus {
+      border-color: #34C759;
+    }
+
+    .submit-btn {
+      width: 100%;
+      padding: 12px;
+      background-color: #34C759;
+      color: #1E1E1E;
+      border: none;
+      border-radius: 8px;
+      font-size: 14px;
+      font-weight: 700;
+      cursor: pointer;
+      margin-top: 10px;
+      transition: background-color 0.2s, transform 0.1s;
+    }
+
+    .submit-btn:hover {
+      background-color: #30B050;
+      transform: translateY(-1px);
+    }
+
+    #statusMsg {
+      margin-top: 14px;
+      font-size: 12px;
+      font-weight: 600;
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <div class="register-card">
+    <h1 class="brand-title">EYEsorenomore</h1>
+    <p class="brand-subtitle">Complete registration to activate display protection.</p>
+
+    <form id="registerForm">
+      <div class="form-group">
+        <label for="userName">Full Name</label>
+        <input type="text" id="userName" placeholder="John Doe" required>
+      </div>
+
+      <div class="form-group">
+        <label for="userEmail">Email Address</label>
+        <input type="email" id="userEmail" placeholder="john@example.com" required>
+      </div>
+
+      <button type="submit" class="submit-btn">Activate & Close Setup</button>
+    </form>
+
+    <div id="statusMsg"></div>
+  </div>
+
+  <script src="register.js"></script>
+</body>
+</html>

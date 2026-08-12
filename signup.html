@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Screen Oasis - User Registration</title>
+  <link rel="stylesheet" href="winrar-style.css">
+</head>
+<body class="winrar-body">
+  <!-- Top Bar -->
+  <div class="winrar-topbar">
+    <h1 class="winrar-logo-title">Screen Oasis v6.20</h1>
+    <p class="winrar-logo-subtitle">Official Registration & Product Licensing Center</p>
+  </div>
+
+  <!-- Navigation Bar -->
+  <div class="winrar-nav">
+    <a href="welcome.html">Home</a>
+    <a href="signup.html">Registration</a>
+    <a href="payment.html">Buy License</a>
+    <a href="dashboard.html">User Portal</a>
+  </div>
+
+  <!-- Main Container -->
+  <div class="winrar-layout" style="justify-content: center; max-width: 600px;">
+    <div class="winrar-main">
+      <div class="winrar-box">
+        <h2 class="winrar-box-header">Screen Oasis Software Registration</h2>
+        <p>Please complete the official user registration form below. This will register your trial period and enable full eye-protection filter controls.</p>
+        
+        <form id="signupForm">
+          <div class="winrar-form-group">
+            <label for="userName">Full Name / Licensee Name:</label>
+            <input type="text" id="userName" placeholder="e.g. John Doe" required>
+          </div>
+          
+          <div class="winrar-form-group">
+            <label for="userEmail">Email Address:</label>
+            <input type="email" id="userEmail" placeholder="e.g. john@example.com" required>
+          </div>
+
+          <div style="margin-top: 20px;">
+            <button type="submit" class="winrar-btn-green" style="width: 100%;">Complete Registration & Enter Oasis</button>
+          </div>
+        </form>
+        <div id="statusMsg" style="margin-top: 10px; font-weight: bold; color: #008800; display: none;"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="winrar-footer">
+    Copyright &copy; 2026 Screen Oasis Software. All rights reserved.<br>
+    <a href="payment.html" class="winrar-link">Corporate Licensing</a> | <a href="welcome.html" class="winrar-link">Interactive Sandbox</a>
+  </div>
+
+  <script src="signup.js"></script>
+</body>
+</html>

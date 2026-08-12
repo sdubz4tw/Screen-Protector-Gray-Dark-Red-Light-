@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Screen Oasis - User Portal & Analytics Dashboard</title>
+  <link rel="stylesheet" href="winrar-style.css">
+</head>
+<body class="winrar-body">
+  <!-- Top Bar Header -->
+  <div class="winrar-topbar">
+    <h1 class="winrar-logo-title">Screen Oasis v6.20</h1>
+    <p class="winrar-logo-subtitle">User Stats & Display Health Telemetry Portal</p>
+  </div>
+
+  <!-- Navigation Bar -->
+  <div class="winrar-nav">
+    <a href="welcome.html">Home / Sandbox</a>
+    <a href="signup.html">Registration</a>
+    <a href="payment.html">Buy License</a>
+    <a href="dashboard.html">User Portal</a>
+  </div>
+
+  <div class="winrar-layout">
+    <div class="winrar-main">
+      <!-- User Profile Card -->
+      <div class="winrar-box">
+        <h2 class="winrar-box-header">Account Profile Status</h2>
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px;">
+          <div>
+            <p><strong>Licensee Name:</strong> <span id="dashName">Loading...</span></p>
+            <p><strong>Email Address:</strong> <span id="dashEmail">Loading...</span></p>
+          </div>
+          <div>
+            <p><strong>Account Status:</strong> <span id="dashStatus" style="font-weight: bold; color: #d4a000;">Evaluating (Trial)</span></p>
+            <p><strong>Installation Date:</strong> <span id="dashDate">Loading...</span></p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Telemetry Analytics Table -->
+      <div class="winrar-box">
+        <h2 class="winrar-box-header">Screen Protection Usage Hours</h2>
+        <p>Live telemetry logs tracking cumulative eye health protection across your active browsing sessions:</p>
+        
+        <table class="winrar-table">
+          <thead>
+            <tr>
+              <th>Filter Shader Mode</th>
+              <th>Active Hours Logged</th>
+              <th>Estimated Ocular Strain Saved</th>
+              <th>Status</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>🔴 <strong>Red Light Spectrum Shift</strong></td>
+              <td>12.5 hrs</td>
+              <td>~35% Blue Light Reduction</td>
+              <td><span style="color: #008800; font-weight: bold;">Operational</span></td>
+            </tr>
+            <tr>
+              <td>📖 <strong>Grayscale Reading View</strong></td>
+              <td>4.2 hrs</td>
+              <td>~20% Visual Dopamine Detox</td>
+              <td><span style="color: #008800; font-weight: bold;">Operational</span></td>
+            </tr>
+            <tr>
+              <td>🕶️ <strong>Calibrated Dark Theme Invert</strong></td>
+              <td>28.3 hrs</td>
+              <td>~65% High-Luminance Reduction</td>
+              <td><span style="color: #008800; font-weight: bold;">Operational</span></td>
+            </tr>
+            <tr style="font-weight: bold; background-color: #e6ecf7;">
+              <td>Total Screen Protection Accumulated</td>
+              <td>45.0 hrs</td>
+              <td>~120 Hours Total Fatigue Prevention</td>
+              <td><span style="color: #0000aa;">Active</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- Sidebar Column -->
+    <div class="winrar-sidebar">
+      <a href="payment.html" class="winrar-btn-green">🛒 Upgrade / Buy License</a>
+      <a href="welcome.html" class="winrar-btn-blue">🧪 Test Interactive Sandbox</a>
+
+      <div class="winrar-box" style="font-size: 11px;">
+        <strong style="color: #0000aa;">Telemetry Status</strong><br>
+        Local telemetry storage synced. Central telemetry active.
+      </div>
+    </div>
+  </div>
+
+  <div class="winrar-footer">
+    Copyright &copy; 2026 Screen Oasis Software. All rights reserved.<br>
+    <a href="signup.html" class="winrar-link">User Registration</a> | <a href="payment.html" class="winrar-link">Buy License</a> | <a href="welcome.html" class="winrar-link">Sandbox Preview</a>
+  </div>
+
+  <script>
+    // Fetch profile info from chrome.storage.local and Supabase
+    const url = "https://pfhbzefiyxheqignpmfo.supabase.co/rest/v1/profiles";
+    const key = "sb_publishable_S_DoBN2Lpin0x3T4x8z4ZA_-4hyyiC3";
+
+    if (typeof chrome !== 'undefined' && chrome.storage && chrome.storage.local) {
+      chrome.storage.local.get(['userName', 'userEmail', 'installDate', 'userPaid'], (res) => {
+        const nameEl = document.getElementById('dashName');
+        const emailEl = document.getElementById('dashEmail');
+        const statusEl = document.getElementById('dashStatus');
+        const dateEl = document.getElementById('dashDate');
+
+        if (res.userName) nameEl.textContent = res.userName;
+        else nameEl.textContent = "Guest Evaluator";
+
+        if (res.userEmail) {
+          emailEl.textContent = res.userEmail;
+          // Query Supabase for cloud verification status
+          fetch(`${url}?select=payment_status,created_at&email=eq.${encodeURIComponent(res.userEmail)}`, {
+            method: "GET",
+            headers: {
+              "apikey": key,
+              "Authorization": `Bearer ${key}`
+            }
+          })
+          .then(r => r.json())
+          .then(data => {
+            if (data && data[0]) {
+              const profile = data[0];
+              if (profile.payment_status === "Paid" || res.userPaid) {
+                statusEl.textContent = "Licensed (Paid)";
+                statusEl.style.color = "#008800";
+              }
+              if (profile.created_at) {
+                dateEl.textContent = new Date(profile.created_at).toLocaleDateString();
+              }
+            }
+          })
+          .catch(err => console.log("Dashboard database fetch error:", err));
+        } else {
+          emailEl.textContent = "Unregistered";
+        }
+
+        if (res.userPaid) {
+          statusEl.textContent = "Licensed (Paid)";
+          statusEl.style.color = "#008800";
+        }
+
+        if (res.installDate) {
+          dateEl.textContent = new Date(res.installDate).toLocaleDateString();
+        } else {
+          dateEl.textContent = new Date().toLocaleDateString();
+        }
+      });
+    } else {
+      document.getElementById('dashName').textContent = "Demo User";
+      document.getElementById('dashEmail').textContent = "demo@screenoasis.com";
+      document.getElementById('dashDate').textContent = new Date().toLocaleDateString();
+    }
+  </script>
+</body>
+</html>

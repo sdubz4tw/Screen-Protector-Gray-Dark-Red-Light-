@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <!-- Header -->
+  <div class="header">
+    <div class="logo-group">
+      <div class="header-title" id="headerTitle" title="Open Homepage">EyeCare Reader</div>
+      <div class="ios-badge" id="statusBadge">✨ Trial User</div>
+    </div>
+    <div class="master-toggle-group">
+      <label class="master-switch">
+        <input type="checkbox" id="masterToggle" checked>
+        <span class="master-slider">
+          <span class="switch-text text-on">ON</span>
+          <span class="switch-text text-off">OFF</span>
+          <span class="switch-handle"></span>
+        </span>
+      </label>
+    </div>
+  </div>
+
+  <!-- Settings List Container -->
+  <div class="settings-container ios-group">
+    <!-- Setting Item 1: Red Light Mode -->
+    <div class="setting-item">
+      <div class="setting-header">
+        <div class="setting-title-group">
+          <span class="row-title title-red">Red Light Mode</span>
+          <div class="info-container">
+            <span class="info-icon">ⓘ</span>
+            <span class="tooltip-text">Cuts out harsh blue light to reduce eye strain during late-night browsing.</span>
+          </div>
+        </div>
+        <div class="setting-controls-group">
+          <span class="readout-badge" id="redIntensity-val">100%</span>
+          <label class="ios-switch">
+            <input type="checkbox" id="redLight">
+            <span class="ios-slider"></span>
+          </label>
+        </div>
+      </div>
+      <input type="range" id="redIntensity" min="10" max="100" value="100" class="slider ios-range">
+    </div>
+
+    <!-- Setting Item 2: Grayscale View -->
+    <div class="setting-item">
+      <div class="setting-header">
+        <div class="setting-title-group">
+          <span class="row-title title-gray">Grayscale View</span>
+          <div class="info-container">
+            <span class="info-icon">ⓘ</span>
+            <span class="tooltip-text">Removes color saturation to create a distraction-free, kindle-like reading experience.</span>
+          </div>
+        </div>
+        <div class="setting-controls-group">
+          <span class="readout-badge" id="grayIntensity-val">100%</span>
+          <label class="ios-switch">
+            <input type="checkbox" id="grayscale">
+            <span class="ios-slider"></span>
+          </label>
+        </div>
+      </div>
+      <input type="range" id="grayIntensity" min="10" max="100" value="100" class="slider ios-range">
+    </div>
+
+    <!-- Setting Item 3: Dark Mode -->
+    <div class="setting-item">
+      <div class="setting-header">
+        <div class="setting-title-group">
+          <span class="row-title title-dark">Dark Mode</span>
+          <div class="info-container">
+            <span class="info-icon">ⓘ</span>
+            <span class="tooltip-text">Forces an accurate, deeply calibrated dark theme across bright web pages.</span>
+          </div>
+        </div>
+        <div class="setting-controls-group">
+          <span class="readout-badge" id="darkIntensity-val">100%</span>
+          <label class="ios-switch">
+            <input type="checkbox" id="darkMode">
+            <span class="ios-slider"></span>
+          </label>
+        </div>
+      </div>
+      <input type="range" id="darkIntensity" min="10" max="100" value="100" class="slider ios-range">
+    </div>
+
+    <!-- Setting Item 4: Light Mode -->
+    <div class="setting-item">
+      <div class="setting-header">
+        <div class="setting-title-group">
+          <span class="row-title title-light">Light Mode</span>
+          <div class="info-container">
+            <span class="info-icon">ⓘ</span>
+            <span class="tooltip-text">Forces a clean, high-contrast bright white theme across overly dark websites.</span>
+          </div>
+        </div>
+        <div class="setting-controls-group">
+          <span class="readout-badge" id="lightIntensity-val">100%</span>
+          <label class="ios-switch">
+            <input type="checkbox" id="lightMode">
+            <span class="ios-slider"></span>
+          </label>
+        </div>
+      </div>
+      <input type="range" id="lightIntensity" min="10" max="100" value="100" class="slider ios-range">
+    </div>
+  </div>
+
+  <!-- Utility Middle Row -->
+  <div class="utility-row">
+    <div class="startup-group">
+      <label class="ios-switch" style="width: 32px; height: 18px;">
+        <input type="checkbox" id="launchOnStartup">
+        <span class="ios-slider startup-slider" style="border-radius: 18px;"></span>
+      </label>
+      <span>Launch on Startup</span>
+    </div>
+    <button id="resetDefaultsBtn" class="reset-btn">Reset Defaults</button>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>

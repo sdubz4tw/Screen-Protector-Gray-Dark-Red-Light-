@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Screen Oasis - Interactive Sandbox & Downloads</title>
+  <link rel="stylesheet" href="winrar-style.css">
+  <style id="sandboxOverlayStyle"></style>
+</head>
+<body class="winrar-body" id="sandboxBody">
+  <!-- Top Bar Header -->
+  <div class="winrar-topbar">
+    <h1 class="winrar-logo-title">Screen Oasis v6.20</h1>
+    <p class="winrar-logo-subtitle">The Powerful Display Protection & Eye Health Utility</p>
+  </div>
+
+  <!-- Navigation Bar -->
+  <div class="winrar-nav">
+    <a href="welcome.html">Home / Sandbox</a>
+    <a href="signup.html">Registration</a>
+    <a href="payment.html">Buy License</a>
+    <a href="dashboard.html">User Portal</a>
+  </div>
+
+  <!-- 2-Column WinRAR Main Layout -->
+  <div class="winrar-layout">
+    <!-- Main Content Column -->
+    <div class="winrar-main">
+      <div class="winrar-box">
+        <h2 class="winrar-box-header">Welcome to Screen Oasis Eye Protection</h2>
+        <p>Screen Oasis is a lightweight display health extension engineered to reduce ocular fatigue, block harsh blue-spectrum luminescence, and provide calibrated dark mode filters for nocturnal computer operation.</p>
+        <p>Using built-in real-time shader pipelines, Screen Oasis applies independent color manipulation without breaking interactive web buttons, links, or image clarity.</p>
+      </div>
+
+      <!-- Interactive Sandbox Box -->
+      <div class="winrar-box">
+        <h2 class="winrar-box-header">Screen Oasis Sandbox: Interactive Filter Preview</h2>
+        <p>Test Screen Oasis filters live on this page! Click any of the interactive preview buttons below to toggle real-time CSS shaders on this webpage:</p>
+        
+        <div style="display: flex; gap: 10px; flex-wrap: wrap; margin-top: 15px;">
+          <button id="btnRed" class="winrar-btn-gold" style="background: linear-gradient(180deg, #ff6666 0%, #cc0000 100%); color: #ffffff;">🔴 Red Light Tint</button>
+          <button id="btnGray" class="winrar-btn-gold" style="background: linear-gradient(180deg, #999999 0%, #444444 100%); color: #ffffff;">📖 Grayscale View</button>
+          <button id="btnDark" class="winrar-btn-gold" style="background: linear-gradient(180deg, #00cccc 0%, #006666 100%); color: #ffffff;">🕶️ Dark Theme Invert</button>
+          <button id="btnReset" class="winrar-btn-gold" style="background: linear-gradient(180deg, #cccccc 0%, #888888 100%); color: #000000;">🔄 Reset Sandbox</button>
+        </div>
+
+        <div id="sandboxStatus" style="margin-top: 12px; font-weight: bold; color: #0000aa;">Active Mode: Normal Unfiltered Display</div>
+      </div>
+
+      <div class="winrar-box">
+        <h3 style="color: #0000aa; margin-top: 0;">System Requirements & Compatibility</h3>
+        <ul>
+          <li>Google Chrome 110.0+ / MV3 Service Worker Architecture</li>
+          <li>Independent intensity sliders for Red Light, Grayscale, and Calibrated Dark Mode</li>
+          <li>Honest-system 7-day trial evaluation model</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Right Sidebar Column -->
+    <div class="winrar-sidebar">
+      <a href="payment.html" class="winrar-btn-green">🛒 Buy Screen Oasis License</a>
+      <a href="signup.html" class="winrar-btn-blue">📥 Download / Register</a>
+
+      <div class="winrar-box" style="padding: 12px; font-size: 11px;">
+        <strong style="color: #0000aa;">Latest Release: v6.20</strong><br>
+        Date: July 2026<br>
+        License: WinRAR-Style Trialware<br>
+        Platform: Chrome OS / Mac / Windows
+      </div>
+    </div>
+  </div>
+
+  <div class="winrar-footer">
+    Copyright &copy; 2026 Screen Oasis Software. All rights reserved.<br>
+    <a href="signup.html" class="winrar-link">User Registration</a> | <a href="payment.html" class="winrar-link">Buy Corporate License</a> | <a href="dashboard.html" class="winrar-link">User Portal</a>
+  </div>
+
+  <!-- Sandbox Filter Script -->
+  <script>
+    const styleEl = document.getElementById('sandboxOverlayStyle');
+    const statusEl = document.getElementById('sandboxStatus');
+
+    document.getElementById('btnRed').addEventListener('click', () => {
+      styleEl.textContent = `
+        html {
+          filter: sepia(100%) hue-rotate(-50deg) saturate(350%) !important;
+        }
+      `;
+      statusEl.textContent = "Active Mode: 🔴 Red Light Filter Applied";
+      statusEl.style.color = "#cc0000";
+    });
+
+    document.getElementById('btnGray').addEventListener('click', () => {
+      styleEl.textContent = `
+        html {
+          filter: grayscale(100%) !important;
+        }
+      `;
+      statusEl.textContent = "Active Mode: 📖 Grayscale View Filter Applied";
+      statusEl.style.color = "#444444";
+    });
+
+    document.getElementById('btnDark').addEventListener('click', () => {
+      styleEl.textContent = `
+        html {
+          filter: invert(90%) hue-rotate(180deg) !important;
+          background-color: #121212 !important;
+        }
+        img, svg, video {
+          filter: invert(100%) hue-rotate(180deg) !important;
+        }
+      `;
+      statusEl.textContent = "Active Mode: 🕶️ Calibrated Dark Theme Invert Applied";
+      statusEl.style.color = "#008888";
+    });
+
+    document.getElementById('btnReset').addEventListener('click', () => {
+      styleEl.textContent = '';
+      statusEl.textContent = "Active Mode: Normal Unfiltered Display";
+      statusEl.style.color = "#0000aa";
+    });
+  </script>
+</body>
+</html>

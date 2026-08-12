@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Screen Oasis - Our Story & Mission</title>
+  <style>
+    body {
+      background-color: #0f0f12;
+      color: #e0e0e0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      margin: 0;
+      overflow-x: hidden;
+    }
+    /* Animated glowing background */
+    .bg-glow {
+      position: absolute;
+      width: 700px;
+      height: 700px;
+      background: radial-gradient(circle, rgba(0, 255, 204, 0.06) 0%, rgba(0, 0, 0, 0) 70%);
+      bottom: -150px;
+      right: -150px;
+      z-index: 1;
+      pointer-events: none;
+      animation: drift 18s infinite alternate ease-in-out;
+    }
+    @keyframes drift {
+      0% { transform: translate(0, 0) scale(1); }
+      100% { transform: translate(-100px, -150px) scale(1.15); }
+    }
+    .card {
+      background: rgba(22, 22, 26, 0.75);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 20px;
+      padding: 45px;
+      max-width: 520px;
+      text-align: center;
+      box-shadow: 0 12px 40px rgba(0, 0, 0, 0.6);
+      backdrop-filter: blur(16px);
+      z-index: 2;
+    }
+    h1 {
+      color: #00ffcc;
+      margin-top: 0;
+      font-size: 30px;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      margin-bottom: 20px;
+    }
+    .story-section {
+      text-align: left;
+      line-height: 1.7;
+      color: #b3b3c2;
+      font-size: 14.5px;
+      margin-bottom: 30px;
+      border-left: 3px solid #00ffcc;
+      padding-left: 18px;
+    }
+    .story-section p {
+      margin: 0 0 12px 0;
+    }
+    .story-section p:last-child {
+      margin-bottom: 0;
+    }
+    .btn-group {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      margin-bottom: 20px;
+    }
+    .btn {
+      padding: 12px;
+      border: none;
+      border-radius: 8px;
+      font-weight: 700;
+      cursor: pointer;
+      font-size: 14.5px;
+      text-decoration: none;
+      transition: background-color 0.2s, transform 0.1s;
+      display: inline-block;
+    }
+    .btn-primary {
+      background: linear-gradient(135deg, #00ffcc 0%, #00b3e6 100%);
+      color: #0f0f12;
+      box-shadow: 0 4px 12px rgba(0, 255, 204, 0.25);
+    }
+    .btn-primary:hover {
+      opacity: 0.95;
+      transform: translateY(-1px);
+    }
+    .link-buttons {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+    }
+    .honest-btn {
+      color: #888894;
+      background: none;
+      border: none;
+      cursor: pointer;
+      font-size: 13px;
+      text-decoration: underline;
+      outline: none;
+      transition: color 0.15s;
+    }
+    .honest-btn:hover {
+      color: #ffffff;
+    }
+  </style>
+</head>
+<body>
+  <div class="bg-glow"></div>
+  <div class="card">
+    <h1>Our Story & Mission</h1>
+    
+    <div class="story-section">
+      <p>Screen Oasis started because of a simple problem: late-night programming was causing severe eye strain, and existing browser filters were frustrating to use. Standard overlays inverted colors blindly, rendering beautiful dark websites into blinding whites, or blacking out SVGs, icons, and buttons entirely.</p>
+      <p>Our mission was to build an intelligent visual reader that respects web components. Screen Oasis implements selective class overrides to rescue icons, inputs, and interactive buttons, maintaining site structure while scaling filters to your preference.</p>
+      <p>This extension is built and maintained independently with care. If Screen Oasis has helped protect your eyes, please consider supporting its development with a donation.</p>
+    </div>
+    
+    <div class="btn-group">
+      <div class="link-buttons">
+        <a href="#" class="btn btn-primary" target="_blank">Stripe</a>
+        <a href="#" class="btn btn-primary" target="_blank">PayPal</a>
+        <a href="#" class="btn btn-primary" target="_blank">Coffee</a>
+      </div>
+      <button class="honest-btn" id="continue-btn">I can't pay right now, let me use it anyway.</button>
+    </div>
+  </div>
+  <script>
+    document.getElementById('continue-btn').addEventListener('click', () => {
+      const today = new Date().toDateString();
+      chrome.storage.local.set({ honestSystemUnlocked: today }, () => {
+        window.close();
+      });
+    });
+  </script>
+</body>
+</html>

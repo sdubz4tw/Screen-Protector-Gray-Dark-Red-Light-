@@ -1,0 +1,218 @@
+/* WinRAR Retro Utilitarian Stylesheet */
+body.winrar-body {
+  background-color: #ffffff;
+  color: #000000;
+  font-family: Arial, Helvetica, sans-serif;
+  margin: 0;
+  padding: 0;
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+/* Header & Navigation */
+.winrar-topbar {
+  background: linear-gradient(180deg, #003399 0%, #001f66 100%);
+  color: #ffffff;
+  padding: 15px 20px;
+  border-bottom: 3px solid #ffcc00;
+}
+
+.winrar-logo-title {
+  font-size: 24px;
+  font-weight: bold;
+  margin: 0;
+  letter-spacing: 0.5px;
+  color: #ffffff;
+  text-shadow: 1px 1px 2px #000000;
+}
+
+.winrar-logo-subtitle {
+  font-size: 12px;
+  color: #ffeb3b;
+  margin: 3px 0 0 0;
+}
+
+.winrar-nav {
+  background-color: #e6e6e6;
+  border-bottom: 2px solid #003399;
+  padding: 8px 20px;
+}
+
+.winrar-nav a {
+  color: #0000aa;
+  font-weight: bold;
+  text-decoration: underline;
+  margin-right: 18px;
+  font-size: 13px;
+}
+
+.winrar-nav a:hover {
+  color: #ff0000;
+}
+
+/* Main Layout Grid */
+.winrar-layout {
+  display: flex;
+  max-width: 980px;
+  margin: 20px auto;
+  padding: 0 15px;
+  gap: 20px;
+}
+
+.winrar-main {
+  flex: 1;
+}
+
+.winrar-sidebar {
+  width: 230px;
+  flex-shrink: 0;
+}
+
+/* Content Containers */
+.winrar-box {
+  background: #ffffff;
+  border: 1px solid #999999;
+  border-radius: 2px;
+  padding: 16px;
+  margin-bottom: 20px;
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.08);
+}
+
+.winrar-box-header {
+  color: #0000aa;
+  font-size: 16px;
+  font-weight: bold;
+  border-bottom: 1px solid #0000aa;
+  padding-bottom: 6px;
+  margin-top: 0;
+  margin-bottom: 14px;
+}
+
+/* Glossy Retro Buttons */
+.winrar-btn-green {
+  background: linear-gradient(180deg, #38d638 0%, #008800 100%);
+  color: #ffffff !important;
+  font-weight: bold;
+  font-size: 14px;
+  border: 2px solid #004400;
+  border-radius: 4px;
+  padding: 10px 16px;
+  text-align: center;
+  text-decoration: none !important;
+  display: block;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.5);
+  text-shadow: 1px 1px 1px #003300;
+  cursor: pointer;
+  margin-bottom: 10px;
+}
+
+.winrar-btn-green:hover {
+  background: linear-gradient(180deg, #42ea42 0%, #00a000 100%);
+}
+
+.winrar-btn-blue {
+  background: linear-gradient(180deg, #3399ff 0%, #004080 100%);
+  color: #ffffff !important;
+  font-weight: bold;
+  font-size: 14px;
+  border: 2px solid #00264d;
+  border-radius: 4px;
+  padding: 10px 16px;
+  text-align: center;
+  text-decoration: none !important;
+  display: block;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.5);
+  text-shadow: 1px 1px 1px #001a33;
+  cursor: pointer;
+  margin-bottom: 10px;
+}
+
+.winrar-btn-blue:hover {
+  background: linear-gradient(180deg, #4db8ff 0%, #0059b3 100%);
+}
+
+.winrar-btn-gold {
+  background: linear-gradient(180deg, #ffcc00 0%, #d4a000 100%);
+  color: #000000 !important;
+  font-weight: bold;
+  font-size: 13px;
+  border: 1px solid #997300;
+  border-radius: 3px;
+  padding: 6px 14px;
+  text-decoration: none !important;
+  display: inline-block;
+  cursor: pointer;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.5);
+}
+
+.winrar-btn-gold:hover {
+  background: linear-gradient(180deg, #ffdd33 0%, #e6b800 100%);
+}
+
+/* Form Styling */
+.winrar-form-group {
+  margin-bottom: 14px;
+}
+
+.winrar-form-group label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 4px;
+  color: #333333;
+}
+
+.winrar-form-group input[type="text"],
+.winrar-form-group input[type="email"] {
+  width: 100%;
+  padding: 6px 8px;
+  border: 1px solid #7f9db9;
+  border-radius: 2px;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+  font-size: 13px;
+}
+
+/* Tables */
+.winrar-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+  font-size: 13px;
+}
+
+.winrar-table th {
+  background: #003399;
+  color: #ffffff;
+  padding: 8px 10px;
+  border: 1px solid #001f66;
+  text-align: left;
+}
+
+.winrar-table td {
+  padding: 8px 10px;
+  border: 1px solid #cccccc;
+}
+
+.winrar-table tr:nth-child(even) {
+  background-color: #f4f6fb;
+}
+
+/* Utility classes */
+a.winrar-link {
+  color: #0000aa;
+  text-decoration: underline;
+  font-weight: bold;
+}
+
+a.winrar-link:hover {
+  color: #ff0000;
+}
+
+.winrar-footer {
+  text-align: center;
+  padding: 20px;
+  border-top: 1px solid #dddddd;
+  margin-top: 40px;
+  color: #666666;
+  font-size: 11px;
+}

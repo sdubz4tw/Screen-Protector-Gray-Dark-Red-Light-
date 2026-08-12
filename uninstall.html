@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Screen Oasis - We're Sorry to See You Go</title>
+  <link rel="stylesheet" href="winrar-style.css">
+</head>
+<body class="winrar-body">
+  <!-- Top Bar Header -->
+  <div class="winrar-topbar">
+    <h1 class="winrar-logo-title">Screen Oasis v6.20</h1>
+    <p class="winrar-logo-subtitle">Extension Uninstallation & User Feedback Center</p>
+  </div>
+
+  <!-- Navigation Bar -->
+  <div class="winrar-nav">
+    <a href="welcome.html">Home / Sandbox</a>
+    <a href="signup.html">Re-Register</a>
+    <a href="payment.html">Buy License</a>
+  </div>
+
+  <!-- Main Container -->
+  <div class="winrar-layout" style="justify-content: center; max-width: 650px;">
+    <div class="winrar-main">
+      <div class="winrar-box" style="text-align: center;">
+        <h2 class="winrar-box-header" style="text-align: center; color: #cc0000; border-bottom-color: #cc0000;">
+          Are you sure you want to remove Screen Oasis?<br>
+          <span style="font-size: 14px; font-weight: normal; color: #333333; display: block; margin-top: 6px;">
+            Your eyes will thank you if you stay.
+          </span>
+        </h2>
+        
+        <p style="font-size: 13px; color: #555555; margin-bottom: 20px;">
+          Screen Oasis was designed to protect your vision against nocturnal high-luminance strain and blue-spectrum ocular fatigue. We would love to know why you decided to uninstall.
+        </p>
+
+        <!-- Feedback Survey Form -->
+        <form id="uninstallFeedbackForm" style="text-align: left; background: #f9f9f9; padding: 15px; border: 1px solid #dddddd; border-radius: 4px; margin-bottom: 20px;">
+          <strong style="color: #0000aa; display: block; margin-bottom: 10px;">Please select your primary reason for leaving:</strong>
+          
+          <div style="margin-bottom: 8px;">
+            <label style="font-weight: normal; cursor: pointer;">
+              <input type="radio" name="reason" value="too_strong" checked> Filter colors were too intense or difficult to adjust
+            </label>
+          </div>
+          <div style="margin-bottom: 8px;">
+            <label style="font-weight: normal; cursor: pointer;">
+              <input type="radio" name="reason" value="confusing_ui"> Couldn't figure out how to configure custom shaders
+            </label>
+          </div>
+          <div style="margin-bottom: 8px;">
+            <label style="font-weight: normal; cursor: pointer;">
+              <input type="radio" name="reason" value="trial_expired"> Trial ended and I'm not ready to purchase a license yet
+            </label>
+          </div>
+          <div style="margin-bottom: 8px;">
+            <label style="font-weight: normal; cursor: pointer;">
+              <input type="radio" name="reason" value="device_change"> Switching to another browser or workstation
+            </label>
+          </div>
+          <div style="margin-bottom: 14px;">
+            <label style="font-weight: normal; cursor: pointer;">
+              <input type="radio" name="reason" value="other"> Other reason
+            </label>
+          </div>
+
+          <div class="winrar-form-group">
+            <label for="feedbackNotes">Additional Comments (Optional):</label>
+            <input type="text" id="feedbackNotes" placeholder="Tell us how we can improve Screen Oasis...">
+          </div>
+
+          <button type="submit" class="winrar-btn-blue" style="width: 100%; margin-bottom: 0;">Submit Feedback</button>
+        </form>
+        <div id="surveyThanks" style="display: none; font-weight: bold; color: #008800; margin-bottom: 15px;">
+          Thank you for your feedback! It helps us improve Screen Oasis for everyone.
+        </div>
+
+        <!-- Prominent Reinstall Action Button -->
+        <a href="https://chrome.google.com/webstore" class="winrar-btn-green" style="font-size: 16px; padding: 14px; margin-top: 10px;">
+          ⚡ Changed Your Mind? Reinstall Screen Oasis Now
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <div class="winrar-footer">
+    Copyright &copy; 2026 Screen Oasis Software. All rights reserved.<br>
+    <a href="signup.html" class="winrar-link">Re-Register</a> | <a href="payment.html" class="winrar-link">Buy License</a>
+  </div>
+
+  <script>
+    document.getElementById('uninstallFeedbackForm').addEventListener('submit', (e) => {
+      e.preventDefault();
+      document.getElementById('uninstallFeedbackForm').style.display = 'none';
+      document.getElementById('surveyThanks').style.display = 'block';
+    });
+  </script>
+</body>
+</html>

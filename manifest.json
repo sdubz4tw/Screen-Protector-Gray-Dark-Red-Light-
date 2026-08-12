@@ -1,0 +1,36 @@
+{
+  "manifest_version": 3,
+  "name": "EyeCare Reader",
+  "short_name": "EyeCare Reader",
+  "version": "1.0.1",
+  "description": "A smart, eye-friendly reader that reduces glare, softens contrast, and applies context-aware light and dark modes.",
+  "permissions": [
+    "activeTab",
+    "scripting",
+    "storage"
+  ],
+  "host_permissions": [
+    "<all_urls>",
+    "https://pfhbzefiyxheqignpmfo.supabase.co/*"
+  ],
+  "action": {
+    "default_popup": "popup.html"
+  },
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "http://*/*",
+        "https://*/*",
+        "<all_urls>"
+      ],
+      "js": [
+        "content.js"
+      ],
+      "run_at": "document_start",
+      "all_frames": true
+    }
+  ]
+}
