@@ -156,20 +156,22 @@ function injectStyle(themeType) {
     `;
   } else if (themeType === "light") {
     styleEl.textContent = `
-      /* 1. Universal White Background Override for Outer Margins, Headers, Containers, and Module Cards */
-      html[data-eyecare-theme="light"],
-      html[data-eyecare-theme="light"] body,
-      html[data-eyecare-theme="light"] #atomic,
-      html[data-eyecare-theme="light"] #mrt-node-main,
-      html[data-eyecare-theme="light"] header,
-      html[data-eyecare-theme="light"] nav,
-      html[data-eyecare-theme="light"] main,
-      html[data-eyecare-theme="light"] section,
-      html[data-eyecare-theme="light"] article,
-      html[data-eyecare-theme="light"] aside,
-      html[data-eyecare-theme="light"] div,
-      html[data-eyecare-theme="light"] ul,
-      html[data-eyecare-theme="light"] li,
+      /* 1. Yahoo Top Search Bar - White Background with Black Text */
+      html[data-eyecare-theme="light"] #ybar-sbq,
+      html[data-eyecare-theme="light"] #ybar-sf,
+      html[data-eyecare-theme="light"] form[action*="search"],
+      html[data-eyecare-theme="light"] input[type="text"],
+      html[data-eyecare-theme="light"] [data-test-locator="search-box"],
+      html[data-eyecare-theme="light"] [class*="search-input"],
+      html[data-eyecare-theme="light"] [class*="SearchInput"] {
+        background-color: #ffffff !important;
+        background-image: none !important;
+        color: #000000 !important;
+        border: 1.5px solid #d1d5db !important;
+        box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.05) !important;
+      }
+
+      /* 2. Distinct Module Card Box Outlines & Linings */
       html[data-eyecare-theme="light"] [class*="Card"],
       html[data-eyecare-theme="light"] [class*="card"],
       html[data-eyecare-theme="light"] [class*="Module"],
@@ -178,15 +180,27 @@ function injectStyle(themeType) {
       html[data-eyecare-theme="light"] [class*="box"],
       html[data-eyecare-theme="light"] [class*="Container"],
       html[data-eyecare-theme="light"] [class*="container"],
-      html[data-eyecare-theme="light"] [data-test-locator],
+      html[data-eyecare-theme="light"] [data-test-locator="stream-item"],
       html[data-eyecare-theme="light"] [data-component] {
         background-color: #ffffff !important;
-        background-image: none !important; /* Strip dark linear gradient overlays */
-        border-color: #e2e8f0 !important;
+        background-image: none !important;
+        border: 1px solid #e2e8f0 !important;
+        border-radius: 8px !important;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04) !important;
+      }
+
+      /* Exclude plain body & main wrapper from card borders */
+      html[data-eyecare-theme="light"],
+      html[data-eyecare-theme="light"] body,
+      html[data-eyecare-theme="light"] #atomic,
+      html[data-eyecare-theme="light"] #mrt-node-main,
+      html[data-eyecare-theme="light"] [role="main"] {
+        background-color: #ffffff !important;
+        border: none !important;
         box-shadow: none !important;
       }
 
-      /* 2. Solid High-Contrast Black Text Override for Top Menu, Headlines, Titles & Body Text */
+      /* 3. Darken All Subtext, Links & "See More Stories" Text to Solid Black (#000000) */
       html[data-eyecare-theme="light"] a,
       html[data-eyecare-theme="light"] button,
       html[data-eyecare-theme="light"] p,
@@ -199,16 +213,21 @@ function injectStyle(themeType) {
       html[data-eyecare-theme="light"] span,
       html[data-eyecare-theme="light"] li,
       html[data-eyecare-theme="light"] label,
+      html[data-eyecare-theme="light"] time,
       html[data-eyecare-theme="light"] [class*="title"],
       html[data-eyecare-theme="light"] [class*="menu"],
       html[data-eyecare-theme="light"] [class*="nav"],
-      html[data-eyecare-theme="light"] [class*="headline"] {
+      html[data-eyecare-theme="light"] [class*="headline"],
+      html[data-eyecare-theme="light"] [class*="subtext"],
+      html[data-eyecare-theme="light"] [class*="meta"],
+      html[data-eyecare-theme="light"] [class*="see-more"],
+      html[data-eyecare-theme="light"] [class*="explore"] {
         color: #000000 !important;
         opacity: 1 !important;
         text-shadow: none !important;
       }
 
-      /* 3. CSS Custom Variable Tree Override across Frameworks & Web Components */
+      /* 4. CSS Custom Variable Tree Override across Frameworks & Web Components */
       html[data-eyecare-theme="light"],
       html[data-eyecare-theme="light"] * {
         --bg-color: #ffffff !important;
@@ -223,9 +242,21 @@ function injectStyle(themeType) {
         --yt-spec-brand-background-solid: #ffffff !important;
       }
 
-      /* 4. Restore & Protect Yahoo Logo, Brand SVGs, Icons, and Media Elements */
+      /* 5. Restore Yahoo Logo & Keep Logo Background-Images / SVGs Intact */
       html[data-eyecare-theme="light"] #ybar-logo,
+      html[data-eyecare-theme="light"] #ybar-logo *,
       html[data-eyecare-theme="light"] [data-test-locator="logo"],
+      html[data-eyecare-theme="light"] [data-test-locator="logo"] *,
+      html[data-eyecare-theme="light"] [class*="logo"],
+      html[data-eyecare-theme="light"] [class*="Logo"] {
+        background-color: transparent !important;
+        background-image: inherit !important;
+        filter: none !important;
+        opacity: 1 !important;
+        visibility: visible !important;
+        isolation: isolate;
+      }
+
       html[data-eyecare-theme="light"] img,
       html[data-eyecare-theme="light"] video,
       html[data-eyecare-theme="light"] canvas,
