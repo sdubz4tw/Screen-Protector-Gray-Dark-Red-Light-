@@ -45,7 +45,7 @@ html[data-eyecare-mode="light"][data-eyecare-active="true"] button {
 }
 
 /* 3. Black Lines & Outlines for Buttons, Banners, and Boxes */
-html[data-eyecare-mode="light"][data-eyecare-active="true"] button,
+html[data-eyecare-mode="light"][data-eyecare-active="true"] button:not(ytd-button-renderer),
 html[data-eyecare-mode="light"][data-eyecare-active="true"] input,
 html[data-eyecare-mode="light"][data-eyecare-active="true"] select,
 html[data-eyecare-mode="light"][data-eyecare-active="true"] textarea,
@@ -67,6 +67,34 @@ html[data-eyecare-mode="light"][data-eyecare-active="true"] #page-manager,
 html[data-eyecare-mode="light"][data-eyecare-active="true"] [role="main"] {
   background-color: transparent !important;
   background-image: none !important;
+}
+
+/* Force YouTube video container and video tags to remain visible */
+html[data-eyecare-mode="light"][data-eyecare-active="true"] video,
+html[data-eyecare-mode="light"][data-eyecare-active="true"] .html5-video-player,
+html[data-eyecare-mode="light"][data-eyecare-active="true"] .html5-video-container,
+html[data-eyecare-mode="light"][data-eyecare-active="true"] #player-container,
+html[data-eyecare-mode="light"][data-eyecare-active="true"] ytd-player {
+  background: transparent !important;
+  background-color: transparent !important;
+  filter: none !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+}
+
+/* Unmask Sidebar Recommendations & Thumbnails on YouTube */
+html[data-eyecare-mode="light"][data-eyecare-active="true"] #secondary,
+html[data-eyecare-mode="light"][data-eyecare-active="true"] ytd-watch-next-secondary-results-renderer,
+html[data-eyecare-mode="light"][data-eyecare-active="true"] ytd-thumbnail img {
+  opacity: 1 !important;
+  visibility: visible !important;
+  filter: none !important;
+}
+
+/* Clean Up High-Contrast Wireframe Buttons on YouTube */
+html[data-eyecare-mode="light"][data-eyecare-active="true"] ytd-button-renderer,
+html[data-eyecare-mode="light"][data-eyecare-active="true"] #search-form {
+  border: none !important;
 }
 
 /* Universal Dark Mode Override */
