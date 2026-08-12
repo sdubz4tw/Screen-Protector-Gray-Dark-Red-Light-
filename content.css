@@ -1,0 +1,48 @@
+/* EyeCare Reader Universal Non-Destructive Stylesheet */
+
+/* Universal Light Mode Override */
+html[data-eyecare-mode="light"][data-eyecare-active="true"],
+html[data-eyecare-mode="light"][data-eyecare-active="true"] body {
+  background-color: var(--eyecare-bg-color, #ffffff) !important;
+  color: var(--eyecare-text-color, #111111) !important;
+  filter: var(--eyecare-filter, none) !important;
+}
+
+/* Clear background overlays on container blocks (YouTube, Yahoo, etc.) */
+html[data-eyecare-mode="light"][data-eyecare-active="true"] #content,
+html[data-eyecare-mode="light"][data-eyecare-active="true"] #page-manager,
+html[data-eyecare-mode="light"][data-eyecare-active="true"] [role="main"],
+html[data-eyecare-mode="light"][data-eyecare-active="true"] [data-test-locator="stream-item"] {
+  background-color: transparent !important;
+  background-image: none !important;
+}
+
+/* Universal Dark Mode Override */
+html[data-eyecare-mode="dark"][data-eyecare-active="true"],
+html[data-eyecare-mode="dark"][data-eyecare-active="true"] body {
+  background-color: var(--eyecare-bg-color, #121212) !important;
+  color: var(--eyecare-text-color, #ffffff) !important;
+  filter: var(--eyecare-filter, none) !important;
+}
+
+html[data-eyecare-mode="dark"][data-eyecare-active="true"] #content,
+html[data-eyecare-mode="dark"][data-eyecare-active="true"] #page-manager,
+html[data-eyecare-mode="dark"][data-eyecare-active="true"] [role="main"] {
+  background-color: transparent !important;
+  background-image: none !important;
+}
+
+/* Universal Protection: Never hide, invert, or blank out media elements */
+html[data-eyecare-active="true"] img,
+html[data-eyecare-active="true"] video,
+html[data-eyecare-active="true"] iframe,
+html[data-eyecare-active="true"] canvas,
+html[data-eyecare-active="true"] svg,
+html[data-eyecare-active="true"] ytd-thumbnail,
+html[data-eyecare-active="true"] yt-img-shadow,
+html[data-eyecare-active="true"] [style*="background-image"] {
+  filter: none !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+  isolation: isolate;
+}
