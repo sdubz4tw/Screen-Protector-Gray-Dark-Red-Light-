@@ -61,12 +61,19 @@ html[data-eyecare-mode="light"][data-eyecare-active="true"] [data-test-locator="
   border-radius: 6px;
 }
 
-/* Clear transparent background overlays on container blocks */
-html[data-eyecare-mode="light"][data-eyecare-active="true"] #content,
-html[data-eyecare-mode="light"][data-eyecare-active="true"] #page-manager,
-html[data-eyecare-mode="light"][data-eyecare-active="true"] [role="main"] {
-  background-color: transparent !important;
-  background-image: none !important;
+/* Apply background tint to YouTube's primary page container */
+html[data-eyecare-active="true"] ytd-app,
+html[data-eyecare-active="true"] #page-manager,
+html[data-eyecare-active="true"] #content,
+html[data-eyecare-active="true"] #columns {
+  background-color: var(--eyecare-bg-color, #fdfbf7) !important;
+}
+
+/* Clear hardcoded dark overlays on video info and metadata cards */
+html[data-eyecare-active="true"] #primary-inner,
+html[data-eyecare-active="true"] #below,
+html[data-eyecare-active="true"] ytd-watch-metadata {
+  background: transparent !important;
 }
 
 /* Preserve main YouTube video player layers */
