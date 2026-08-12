@@ -193,14 +193,16 @@ function injectStyle(themeType) {
         border-radius: 8px !important;
       }
 
-      /* 5. Yahoo Top Search Bar */
+      /* 5. Yahoo Top Search Bar White Background & Black Text */
       html[data-eyecare-theme="light"] #ybar-sbq,
       html[data-eyecare-theme="light"] #ybar-sf,
       html[data-eyecare-theme="light"] form[action*="search"],
-      html[data-eyecare-theme="light"] input[type="text"] {
+      html[data-eyecare-theme="light"] input[type="text"],
+      html[data-eyecare-theme="light"] [data-test-locator="search-box"] {
         background-color: #ffffff !important;
+        background-image: none !important;
         color: #000000 !important;
-        border: 1.5px solid #000000 !important;
+        border: 1.5px solid #d1d5db !important;
         border-radius: 20px !important;
       }
 
@@ -220,10 +222,10 @@ function injectStyle(themeType) {
         background-color: transparent !important;
         filter: none !important;
         opacity: 1 !important;
-        visibility: visible !important;
         isolation: isolate;
       }
 
+      /* Protect Yahoo Top Logo & Brand SVGs without forcing off-screen visibility */
       html[data-eyecare-theme="light"] #ybar-logo,
       html[data-eyecare-theme="light"] #ybar-logo *,
       html[data-eyecare-theme="light"] [data-test-locator="logo"],
@@ -233,14 +235,7 @@ function injectStyle(themeType) {
         background-color: transparent !important;
         filter: none !important;
         opacity: 1 !important;
-        visibility: visible !important;
         isolation: isolate;
-      }
-
-      html[data-eyecare-theme="light"] svg,
-      html[data-eyecare-theme="light"] svg * {
-        opacity: 1 !important;
-        visibility: visible !important;
       }
     `;
   }
