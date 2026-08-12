@@ -52,11 +52,11 @@ function applyEyeCareFilter(settings) {
   // Composable Filter Pipeline
   const filterParts = [];
 
-  // Red / Warm Light Filter
+  // Red / Warm Light Filter (+25% Boosted Intensity)
   if (settings.redLight) {
     const intensity = settings.redIntensity !== undefined ? settings.redIntensity : 100;
     const ratio = intensity / 100;
-    filterParts.push(`sepia(${0.85 * ratio}) hue-rotate(-25deg) saturate(${1 + 0.4 * ratio})`);
+    filterParts.push(`sepia(${1.06 * ratio}) hue-rotate(-32deg) saturate(${1 + 0.6 * ratio})`);
   }
 
   // Grayscale Filter

@@ -1,18 +1,70 @@
 /* EyeCare Reader Universal Non-Destructive Stylesheet */
 
-/* Universal Light Mode Override */
+/* 1. Universal Light Mode Background Conversion (All Dark Containers to Pure White #ffffff) */
 html[data-eyecare-mode="light"][data-eyecare-active="true"],
-html[data-eyecare-mode="light"][data-eyecare-active="true"] body {
-  background-color: var(--eyecare-bg-color, #ffffff) !important;
-  color: var(--eyecare-text-color, #111111) !important;
-  filter: var(--eyecare-filter, none) !important;
+html[data-eyecare-mode="light"][data-eyecare-active="true"] body,
+html[data-eyecare-mode="light"][data-eyecare-active="true"] main,
+html[data-eyecare-mode="light"][data-eyecare-active="true"] header,
+html[data-eyecare-mode="light"][data-eyecare-active="true"] nav,
+html[data-eyecare-mode="light"][data-eyecare-active="true"] footer,
+html[data-eyecare-mode="light"][data-eyecare-active="true"] section,
+html[data-eyecare-mode="light"][data-eyecare-active="true"] article,
+html[data-eyecare-mode="light"][data-eyecare-active="true"] aside,
+html[data-eyecare-mode="light"][data-eyecare-active="true"] div:not([class*="slide"]):not([class*="hero"]):not([class*="media"]):not([class*="image"]):not([style*="background-image"]),
+html[data-eyecare-mode="light"][data-eyecare-active="true"] ul,
+html[data-eyecare-mode="light"][data-eyecare-active="true"] li,
+html[data-eyecare-mode="light"][data-eyecare-active="true"] form,
+html[data-eyecare-mode="light"][data-eyecare-active="true"] table,
+html[data-eyecare-mode="light"][data-eyecare-active="true"] tr,
+html[data-eyecare-mode="light"][data-eyecare-active="true"] td,
+html[data-eyecare-mode="light"][data-eyecare-active="true"] th {
+  background-color: #ffffff !important;
+  background-image: none !important;
 }
 
-/* Clear background overlays on container blocks (YouTube, Yahoo, etc.) */
+/* 2. Solid High-Contrast Black Text Conversion (#000000) */
+html[data-eyecare-mode="light"][data-eyecare-active="true"] p,
+html[data-eyecare-mode="light"][data-eyecare-active="true"] h1,
+html[data-eyecare-mode="light"][data-eyecare-active="true"] h2,
+html[data-eyecare-mode="light"][data-eyecare-active="true"] h3,
+html[data-eyecare-mode="light"][data-eyecare-active="true"] h4,
+html[data-eyecare-mode="light"][data-eyecare-active="true"] h5,
+html[data-eyecare-mode="light"][data-eyecare-active="true"] h6,
+html[data-eyecare-mode="light"][data-eyecare-active="true"] a,
+html[data-eyecare-mode="light"][data-eyecare-active="true"] span,
+html[data-eyecare-mode="light"][data-eyecare-active="true"] label,
+html[data-eyecare-mode="light"][data-eyecare-active="true"] li,
+html[data-eyecare-mode="light"][data-eyecare-active="true"] time,
+html[data-eyecare-mode="light"][data-eyecare-active="true"] td,
+html[data-eyecare-mode="light"][data-eyecare-active="true"] th,
+html[data-eyecare-mode="light"][data-eyecare-active="true"] input,
+html[data-eyecare-mode="light"][data-eyecare-active="true"] button {
+  color: #000000 !important;
+  opacity: 1 !important;
+  text-shadow: none !important;
+}
+
+/* 3. Black Lines & Outlines for Buttons, Banners, and Boxes */
+html[data-eyecare-mode="light"][data-eyecare-active="true"] button,
+html[data-eyecare-mode="light"][data-eyecare-active="true"] input,
+html[data-eyecare-mode="light"][data-eyecare-active="true"] select,
+html[data-eyecare-mode="light"][data-eyecare-active="true"] textarea,
+html[data-eyecare-mode="light"][data-eyecare-active="true"] [role="button"],
+html[data-eyecare-mode="light"][data-eyecare-active="true"] [class*="card"],
+html[data-eyecare-mode="light"][data-eyecare-active="true"] [class*="Card"],
+html[data-eyecare-mode="light"][data-eyecare-active="true"] [class*="box"],
+html[data-eyecare-mode="light"][data-eyecare-active="true"] [class*="Box"],
+html[data-eyecare-mode="light"][data-eyecare-active="true"] [class*="banner"],
+html[data-eyecare-mode="light"][data-eyecare-active="true"] [class*="Banner"],
+html[data-eyecare-mode="light"][data-eyecare-active="true"] [data-test-locator="stream-item"] {
+  border: 1.5px solid #000000 !important;
+  border-radius: 6px;
+}
+
+/* Clear transparent background overlays on container blocks */
 html[data-eyecare-mode="light"][data-eyecare-active="true"] #content,
 html[data-eyecare-mode="light"][data-eyecare-active="true"] #page-manager,
-html[data-eyecare-mode="light"][data-eyecare-active="true"] [role="main"],
-html[data-eyecare-mode="light"][data-eyecare-active="true"] [data-test-locator="stream-item"] {
+html[data-eyecare-mode="light"][data-eyecare-active="true"] [role="main"] {
   background-color: transparent !important;
   background-image: none !important;
 }
@@ -32,17 +84,23 @@ html[data-eyecare-mode="dark"][data-eyecare-active="true"] [role="main"] {
   background-image: none !important;
 }
 
-/* Universal Protection: Never hide, invert, or blank out media elements */
+/* 4. Protection for Video, Logo, Image & Canvas Components (Never hide, invert, or blank out) */
 html[data-eyecare-active="true"] img,
 html[data-eyecare-active="true"] video,
 html[data-eyecare-active="true"] iframe,
 html[data-eyecare-active="true"] canvas,
+html[data-eyecare-active="true"] picture,
+html[data-eyecare-active="true"] figure,
 html[data-eyecare-active="true"] svg,
+html[data-eyecare-active="true"] svg *,
 html[data-eyecare-active="true"] ytd-thumbnail,
 html[data-eyecare-active="true"] yt-img-shadow,
+html[data-eyecare-active="true"] [class*="logo"],
+html[data-eyecare-active="true"] [class*="Logo"],
+html[data-eyecare-active="true"] #ybar-logo,
 html[data-eyecare-active="true"] [style*="background-image"] {
+  background-color: transparent !important;
   filter: none !important;
   opacity: 1 !important;
-  visibility: visible !important;
   isolation: isolate;
 }
