@@ -156,139 +156,46 @@ function injectStyle(themeType) {
     `;
   } else if (themeType === "light") {
     styleEl.textContent = `
-      /* Lightweight Root & Landmark Overrides */
+      /* Universal White Background Override for All Containers */
       html[data-eyecare-theme="light"],
       html[data-eyecare-theme="light"] body,
-      html[data-eyecare-theme="light"] main,
-      html[data-eyecare-theme="light"] article,
-      html[data-eyecare-theme="light"] section,
-      html[data-eyecare-theme="light"] nav,
-      html[data-eyecare-theme="light"] header,
-      html[data-eyecare-theme="light"] footer,
-      html[data-eyecare-theme="light"] [class*="story"],
-      html[data-eyecare-theme="light"] [class*="article"] {
+      html[data-eyecare-theme="light"] *:not(img):not(video):not(canvas):not(svg):not(picture):not(iframe):not([style*="background-image"]) {
         background-color: #ffffff !important;
-        border-color: #e0e0e0 !important;
+        background-image: none !important;
+        border-color: #e2e8f0 !important;
+        box-shadow: none !important;
       }
 
-      /* Card & Container Background Harmony */
-      html[data-eyecare-theme="light"] [class*="card"],
-      html[data-eyecare-theme="light"] [class*="post"],
-      html[data-eyecare-theme="light"] [class*="container"],
-      html[data-eyecare-theme="light"] shreddit-post {
-        background-color: #FFFFFF !important;
+      /* Universal High-Contrast Black Text Override */
+      html[data-eyecare-theme="light"] *:not(img):not(video):not(canvas):not(svg):not(picture):not(iframe) {
+        color: #111111 !important;
+        text-shadow: none !important;
       }
 
-      /* High-contrast text rule for titles and headings */
-      html[data-eyecare-theme="light"] h1,
-      html[data-eyecare-theme="light"] h2,
-      html[data-eyecare-theme="light"] h3,
-      html[data-eyecare-theme="light"] h4,
-      html[data-eyecare-theme="light"] h5,
-      html[data-eyecare-theme="light"] h6,
-      html[data-eyecare-theme="light"] p,
-      html[data-eyecare-theme="light"] a,
-      html[data-eyecare-theme="light"] [class*="title"],
-      html[data-eyecare-theme="light"] [id*="title"],
-      html[data-eyecare-theme="light"] [class*="post-title"],
-      html[data-eyecare-theme="light"] shreddit-post {
-        color: #121212 !important;
+      /* CSS Custom Variable Tree Override across Frameworks & Web Components */
+      html[data-eyecare-theme="light"],
+      html[data-eyecare-theme="light"] * {
+        --bg-color: #ffffff !important;
+        --theme-bg-color: #ffffff !important;
+        --bg-primary: #ffffff !important;
+        --bg-secondary: #f8f9fa !important;
+        --surface-color: #ffffff !important;
+        --text-color: #111111 !important;
+        --primary-text-color: #111111 !important;
+        --secondary-text-color: #333333 !important;
+        --yt-spec-base-background: #ffffff !important;
+        --yt-spec-brand-background-solid: #ffffff !important;
       }
 
-      /* Subtext & Metadata Contrast */
-      html[data-eyecare-theme="light"] span,
-      html[data-eyecare-theme="light"] time,
-      html[data-eyecare-theme="light"] [class*="meta"],
-      html[data-eyecare-theme="light"] [class*="subtext"],
-      html[data-eyecare-theme="light"] [class*="byline"] {
-        color: #2D3748 !important;
-      }
-
-      /* Make sure media elements and their direct wrappers are visible and unmasked */
+      /* Preserve Media & Image Visibility */
       html[data-eyecare-theme="light"] img,
       html[data-eyecare-theme="light"] video,
-      html[data-eyecare-theme="light"] picture,
       html[data-eyecare-theme="light"] canvas,
+      html[data-eyecare-theme="light"] picture,
       html[data-eyecare-theme="light"] svg,
       html[data-eyecare-theme="light"] iframe,
       html[data-eyecare-theme="light"] [style*="background-image"] {
-        display: inline-block !important;
-        visibility: visible !important;
-        opacity: 1 !important;
-        z-index: auto !important;
-      }
-
-      /* Ensure parent containers holding media don't block visibility with solid fills */
-      html[data-eyecare-theme="light"] :has(> img),
-      html[data-eyecare-theme="light"] :has(> video),
-      html[data-eyecare-theme="light"] :has(> picture),
-      html[data-eyecare-theme="light"] :has(> svg),
-      html[data-eyecare-theme="light"] :has(> canvas) {
         background-color: transparent !important;
-      }
-
-      /* Force custom background and filters over YouTube's internal theme variables */
-      html[data-eyecare-active="true"],
-      html[data-eyecare-active="true"] ytd-app {
-        background-color: var(--eyecare-bg-color, #ffffff) !important;
-        filter: var(--eyecare-filter, none) !important;
-      }
-
-      /* Clear hardcoded YouTube dark/light background containers */
-      html[data-eyecare-active="true"] #content,
-      html[data-eyecare-active="true"] #page-manager,
-      html[data-eyecare-active="true"] ytd-watch-flexy {
-        background: transparent !important;
-      }
-
-      /* Override Yahoo's Internal CSS Custom Variable Tree */
-      html[data-eyecare-active="true"],
-      html[data-eyecare-active="true"] body,
-      html[data-eyecare-active="true"] #atomic,
-      html[data-eyecare-active="true"] [data-wf-theme] {
-        --bg-color: var(--eyecare-bg-color, #ffffff) !important;
-        --theme-bg-color: var(--eyecare-bg-color, #ffffff) !important;
-        --secondary-bg-color: #f5f5f5 !important;
-        --tertiary-bg-color: #eeeeee !important;
-        --text-color: var(--eyecare-text-color, #111111) !important;
-        --primary-text-color: #111111 !important;
-        --secondary-text-color: #444444 !important;
-        background-color: var(--eyecare-bg-color, #ffffff) !important;
-      }
-
-      /* Clear hardcoded module backgrounds, headers, and infinite stream cards */
-      html[data-eyecare-active="true"] header,
-      html[data-eyecare-active="true"] nav,
-      html[data-eyecare-active="true"] [role="main"],
-      html[data-eyecare-active="true"] [data-test-locator="stream-item"],
-      html[data-eyecare-active="true"] .wafer-caas-dialog,
-      html[data-eyecare-active="true"] ul[role="listbox"] {
-        background-color: var(--eyecare-bg-color, #ffffff) !important;
-        background-image: none !important; /* Strip dark gradient overlays */
-        color: #111111 !important;
-      }
-
-      /* Clear hardcoded white/grey inline backgrounds */
-      html[data-eyecare-active="true"] div[style*="background"] {
-        background-color: transparent !important;
-      }
-
-      /* Force all text inside cards to dark high-contrast print */
-      html[data-eyecare-active="true"] p,
-      html[data-eyecare-active="true"] h1,
-      html[data-eyecare-active="true"] h2,
-      html[data-eyecare-active="true"] h3,
-      html[data-eyecare-active="true"] a,
-      html[data-eyecare-active="true"] span {
-        color: #111111 !important;
-      }
-
-      /* Keep Image & Video Media Fully Intact */
-      html[data-eyecare-active="true"] img,
-      html[data-eyecare-active="true"] video,
-      html[data-eyecare-active="true"] figure,
-      html[data-eyecare-active="true"] svg:not([class*="icon"]),
-      html[data-eyecare-active="true"] [data-test-locator="image"] {
         filter: none !important;
         opacity: 1 !important;
         isolation: isolate;
@@ -322,14 +229,13 @@ function applyFilterRules(state) {
   // Set active attribute on root
   root.setAttribute('data-eyecare-active', 'true');
 
-  // 1. Theme Override Processing using native background color determination
-  const nativelyDark = isNativePageDark();
-  if (state.darkMode && !nativelyDark) {
+  // 1. Theme Override Processing
+  if (state.darkMode) {
     if (root.getAttribute('data-eyecare-theme') !== 'dark') {
       root.setAttribute('data-eyecare-theme', 'dark');
     }
     injectStyle("dark");
-  } else if (state.lightMode && nativelyDark) {
+  } else if (state.lightMode) {
     if (root.getAttribute('data-eyecare-theme') !== 'light') {
       root.setAttribute('data-eyecare-theme', 'light');
     }
