@@ -44,21 +44,48 @@ html[data-eyecare-mode="light"][data-eyecare-active="true"] button {
   text-shadow: none !important;
 }
 
-/* 3. Black Lines & Outlines for Buttons, Banners, and Boxes */
-html[data-eyecare-mode="light"][data-eyecare-active="true"] button:not(ytd-button-renderer),
-html[data-eyecare-mode="light"][data-eyecare-active="true"] input,
-html[data-eyecare-mode="light"][data-eyecare-active="true"] select,
-html[data-eyecare-mode="light"][data-eyecare-active="true"] textarea,
-html[data-eyecare-mode="light"][data-eyecare-active="true"] [role="button"],
-html[data-eyecare-mode="light"][data-eyecare-active="true"] [class*="card"],
-html[data-eyecare-mode="light"][data-eyecare-active="true"] [class*="Card"],
-html[data-eyecare-mode="light"][data-eyecare-active="true"] [class*="box"],
-html[data-eyecare-mode="light"][data-eyecare-active="true"] [class*="Box"],
-html[data-eyecare-mode="light"][data-eyecare-active="true"] [class*="banner"],
-html[data-eyecare-mode="light"][data-eyecare-active="true"] [class*="Banner"],
+/* 3. Soft 1px Card Linings for Feed Items Only (No Wildcard Wireframe Outlines) */
 html[data-eyecare-mode="light"][data-eyecare-active="true"] [data-test-locator="stream-item"] {
-  border: 1.5px solid #000000 !important;
-  border-radius: 6px;
+  border: 1px solid #e5e7eb !important;
+  border-radius: 8px !important;
+}
+
+/* 4. Format Yahoo Search Bar, Sign In, and Mail Action Buttons */
+html[data-eyecare-mode="light"][data-eyecare-active="true"] #ybar-sbq,
+html[data-eyecare-mode="light"][data-eyecare-active="true"] #ybar-sf,
+html[data-eyecare-mode="light"][data-eyecare-active="true"] form[action*="search"],
+html[data-eyecare-mode="light"][data-eyecare-active="true"] input[type="text"] {
+  background-color: #ffffff !important;
+  color: #111111 !important;
+  border: 1px solid #d1d5db !important;
+  border-radius: 20px !important;
+  box-shadow: none !important;
+}
+
+html[data-eyecare-mode="light"][data-eyecare-active="true"] a[href*="mail"],
+html[data-eyecare-mode="light"][data-eyecare-active="true"] a[href*="login"],
+html[data-eyecare-mode="light"][data-eyecare-active="true"] [data-test-locator="mail-button"],
+html[data-eyecare-mode="light"][data-eyecare-active="true"] [data-test-locator="sign-in-button"],
+html[data-eyecare-mode="light"][data-eyecare-active="true"] #ybar-navigation {
+  background-color: #ffffff !important;
+  color: #111111 !important;
+  border: 1px solid #d1d5db !important;
+  border-radius: 20px !important;
+  box-shadow: none !important;
+}
+
+/* 5. Clear Box Shadows & Underlines on Text & Headlines */
+html[data-eyecare-mode="light"][data-eyecare-active="true"] a,
+html[data-eyecare-mode="light"][data-eyecare-active="true"] h1,
+html[data-eyecare-mode="light"][data-eyecare-active="true"] h2,
+html[data-eyecare-mode="light"][data-eyecare-active="true"] h3,
+html[data-eyecare-mode="light"][data-eyecare-active="true"] h4,
+html[data-eyecare-mode="light"][data-eyecare-active="true"] h5,
+html[data-eyecare-mode="light"][data-eyecare-active="true"] h6,
+html[data-eyecare-mode="light"][data-eyecare-active="true"] span,
+html[data-eyecare-mode="light"][data-eyecare-active="true"] p {
+  border: none !important;
+  box-shadow: none !important;
 }
 
 /* Apply background tint to YouTube's primary page container */
