@@ -153,23 +153,44 @@ html[data-eyecare-active="true"] #secondary ytd-compact-video-renderer {
   visibility: visible !important;
 }
 
-/* High contrast for sidebar links and navigation text */
-html[data-eyecare-mode="light"][data-eyecare-active="true"] #guide-content,
-html[data-eyecare-mode="light"][data-eyecare-active="true"] ytd-guide-entry-renderer,
-html[data-eyecare-mode="light"][data-eyecare-active="true"] #endpoint,
-html[data-eyecare-mode="light"][data-eyecare-active="true"] yt-chip-cloud-chip-renderer {
+/* Light Mode - Force Black Text Across Navigation & Titles */
+html[data-eyecare-mode="light"][data-eyecare-active="true"] #guide-content *,
+html[data-eyecare-mode="light"][data-eyecare-active="true"] ytd-guide-entry-renderer *,
+html[data-eyecare-mode="light"][data-eyecare-active="true"] #endpoint *,
+html[data-eyecare-mode="light"][data-eyecare-active="true"] yt-chip-cloud-chip-renderer *,
+html[data-eyecare-mode="light"][data-eyecare-active="true"] #video-title,
+html[data-eyecare-mode="light"][data-eyecare-active="true"] .ytd-video-meta-block {
   color: #0f0f0f !important;
   opacity: 1 !important;
+  visibility: visible !important;
 }
 
-/* Inactive category pills / chips */
+/* Active Category Chips */
 html[data-eyecare-mode="light"][data-eyecare-active="true"] yt-chip-cloud-chip-renderer[chip-style="STYLE_DEFAULT"] {
   background-color: #f2f2f2 !important;
   color: #0f0f0f !important;
 }
 
-/* Video duration timestamp badges (e.g., 10:00) */
-html[data-eyecare-mode="light"][data-eyecare-active="true"] ytd-thumbnail-overlay-time-status-renderer {
+/* Dark Mode - Lock White Text on Dark Backgrounds */
+html[data-eyecare-mode="dark"][data-eyecare-active="true"] #guide-content *,
+html[data-eyecare-mode="dark"][data-eyecare-active="true"] ytd-guide-entry-renderer *,
+html[data-eyecare-mode="dark"][data-eyecare-active="true"] #endpoint *,
+html[data-eyecare-mode="dark"][data-eyecare-active="true"] yt-formatted-string,
+html[data-eyecare-mode="dark"][data-eyecare-active="true"] #video-title {
+  color: #ffffff !important;
+  opacity: 1 !important;
+}
+
+/* Channel Avatars */
+html[data-eyecare-active="true"] #avatar-container,
+html[data-eyecare-active="true"] yt-img-shadow img {
+  opacity: 1 !important;
+  visibility: visible !important;
+  filter: none !important;
+}
+
+/* Video Duration Badges */
+html[data-eyecare-active="true"] ytd-thumbnail-overlay-time-status-renderer {
   background-color: rgba(0, 0, 0, 0.8) !important;
   color: #ffffff !important;
   border-radius: 4px !important;
