@@ -50,16 +50,21 @@ html[data-eyecare-mode="light"][data-eyecare-active="true"] [data-test-locator="
   border-radius: 8px !important;
 }
 
-/* 4. Format Yahoo Search Bar, Sign In, and Mail Action Buttons */
-html[data-eyecare-mode="light"][data-eyecare-active="true"] #ybar-sbq,
-html[data-eyecare-mode="light"][data-eyecare-active="true"] #ybar-sf,
-html[data-eyecare-mode="light"][data-eyecare-active="true"] form[action*="search"],
-html[data-eyecare-mode="light"][data-eyecare-active="true"] input[type="text"] {
+/* 4. Force light styling on Yahoo main search bar */
+html[data-eyecare-mode="light"][data-eyecare-active="true"] input[type="text"],
+html[data-eyecare-mode="light"][data-eyecare-active="true"] [role="search"],
+html[data-eyecare-mode="light"][data-eyecare-active="true"] #ybar-sbq {
   background-color: #ffffff !important;
   color: #111111 !important;
-  border: 1px solid #d1d5db !important;
-  border-radius: 20px !important;
-  box-shadow: none !important;
+  border: 1px solid #d0d0d0 !important;
+}
+
+/* Restore Featured Headline Font Weight */
+html[data-eyecare-mode="light"][data-eyecare-active="true"] [data-test-locator="headline"] a,
+html[data-eyecare-mode="light"][data-eyecare-active="true"] h2,
+html[data-eyecare-mode="light"][data-eyecare-active="true"] h3 {
+  font-weight: 700 !important;
+  color: #000000 !important;
 }
 
 html[data-eyecare-mode="light"][data-eyecare-active="true"] a[href*="mail"],
