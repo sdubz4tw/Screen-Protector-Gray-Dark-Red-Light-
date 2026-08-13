@@ -90,19 +90,23 @@ html[data-eyecare-active="true"] canvas {
   visibility: visible !important;
 }
 
-/* Unmask Sidebar Recommendations & Thumbnails on YouTube */
-html[data-eyecare-mode="light"][data-eyecare-active="true"] #secondary,
-html[data-eyecare-mode="light"][data-eyecare-active="true"] ytd-watch-next-secondary-results-renderer,
-html[data-eyecare-mode="light"][data-eyecare-active="true"] ytd-thumbnail img {
+/* Preserve Thumbnails, Avatars, & Media Content on YouTube */
+html[data-eyecare-active="true"] ytd-thumbnail,
+html[data-eyecare-active="true"] yt-img-shadow,
+html[data-eyecare-active="true"] #avatar,
+html[data-eyecare-active="true"] #secondary ytd-compact-video-renderer {
+  filter: none !important;
   opacity: 1 !important;
   visibility: visible !important;
-  filter: none !important;
 }
 
-/* Clean Up High-Contrast Wireframe Buttons on YouTube */
-html[data-eyecare-mode="light"][data-eyecare-active="true"] ytd-button-renderer,
-html[data-eyecare-mode="light"][data-eyecare-active="true"] #search-form {
+/* Restore Clean Native YouTube Buttons & Search Bar */
+html[data-eyecare-active="true"] ytd-button-renderer,
+html[data-eyecare-active="true"] yt-button-shape,
+html[data-eyecare-active="true"] #search-form,
+html[data-eyecare-active="true"] #container.ytd-searchbox {
   border: none !important;
+  box-shadow: none !important;
 }
 
 /* Universal Dark Mode Override */
