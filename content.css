@@ -44,19 +44,50 @@ html[data-eyecare-mode="light"][data-eyecare-active="true"] button {
   text-shadow: none !important;
 }
 
-/* 3. Soft 1px Card Linings for Feed Items Only (No Wildcard Wireframe Outlines) */
-html[data-eyecare-mode="light"][data-eyecare-active="true"] [data-test-locator="stream-item"] {
-  border: 1px solid #e5e7eb !important;
-  border-radius: 8px !important;
+/* Light Mode Card Surface Styles matching Yahoo native card dimensions */
+html[data-eyecare-mode="light"][data-eyecare-active="true"] [data-test-locator="stream-item"],
+html[data-eyecare-mode="light"][data-eyecare-active="true"] #mrt-node-main .wafer-caas-dialog,
+html[data-eyecare-mode="light"][data-eyecare-active="true"] [data-wf-theme],
+html[data-eyecare-mode="light"][data-eyecare-active="true"] .featured-card,
+html[data-eyecare-mode="light"][data-eyecare-active="true"] #right-rail-container > div {
+  background-color: #f4f4f7 !important; /* Soft light-grey card surface */
+  border: 1px solid #e1e1e6 !important;
+  border-radius: 16px !important;
+  padding: 16px !important;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04) !important;
 }
 
-/* 4. Force light styling on Yahoo main search bar */
+/* Featured Hero Article Card Container */
+html[data-eyecare-mode="light"][data-eyecare-active="true"] [data-test-locator="hero-carousel"] {
+  background-color: #f4f4f7 !important;
+  border-radius: 16px !important;
+  overflow: hidden !important;
+  border: 1px solid #e1e1e6 !important;
+}
+
+/* Search Bar Input Container */
+html[data-eyecare-mode="light"][data-eyecare-active="true"] form[role="search"],
+html[data-eyecare-mode="light"][data-eyecare-active="true"] form[action*="search"],
 html[data-eyecare-mode="light"][data-eyecare-active="true"] input[type="text"],
-html[data-eyecare-mode="light"][data-eyecare-active="true"] [role="search"],
 html[data-eyecare-mode="light"][data-eyecare-active="true"] #ybar-sbq {
+  background-color: #f4f4f7 !important;
+  color: #111111 !important;
+  border: 1px solid #d0d0d8 !important;
+  border-radius: 24px !important;
+}
+
+/* Mail & Sign In Buttons */
+html[data-eyecare-mode="light"][data-eyecare-active="true"] a[data-test-locator="signin-btn"],
+html[data-eyecare-mode="light"][data-eyecare-active="true"] [data-test-locator="sign-in-button"],
+html[data-eyecare-mode="light"][data-eyecare-active="true"] a[href*="login"],
+html[data-eyecare-mode="light"][data-eyecare-active="true"] #ybar-mail-link,
+html[data-eyecare-mode="light"][data-eyecare-active="true"] [data-test-locator="mail-button"],
+html[data-eyecare-mode="light"][data-eyecare-active="true"] a[href*="mail"] {
   background-color: #ffffff !important;
   color: #111111 !important;
-  border: 1px solid #d0d0d0 !important;
+  border: 1px solid #d0d0d8 !important;
+  border-radius: 20px !important;
+  box-shadow: none !important;
 }
 
 /* Restore Featured Headline Font Weight */
@@ -65,18 +96,6 @@ html[data-eyecare-mode="light"][data-eyecare-active="true"] h2,
 html[data-eyecare-mode="light"][data-eyecare-active="true"] h3 {
   font-weight: 700 !important;
   color: #000000 !important;
-}
-
-html[data-eyecare-mode="light"][data-eyecare-active="true"] a[href*="mail"],
-html[data-eyecare-mode="light"][data-eyecare-active="true"] a[href*="login"],
-html[data-eyecare-mode="light"][data-eyecare-active="true"] [data-test-locator="mail-button"],
-html[data-eyecare-mode="light"][data-eyecare-active="true"] [data-test-locator="sign-in-button"],
-html[data-eyecare-mode="light"][data-eyecare-active="true"] #ybar-navigation {
-  background-color: #ffffff !important;
-  color: #111111 !important;
-  border: 1px solid #d1d5db !important;
-  border-radius: 20px !important;
-  box-shadow: none !important;
 }
 
 /* 5. Clear Box Shadows & Underlines on Text & Headlines */
